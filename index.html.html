@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeCanvas | Digital Authority Toolkit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #a855f7;
+            --dark: #0f172a;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .bg-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.15) 0%, transparent 40%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        span.highlight {
+            color: var(--primary);
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 2rem;
+            padding: 3rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .checklist {
+            list-style: none;
+            margin-bottom: 3rem;
+        }
+
+        .item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border-radius: 1rem;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .item:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .icon {
+            font-size: 1.5rem;
+            margin-right: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+
+        .item-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .item-content p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        .cta-box {
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+            padding-top: 3rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.25rem 2.5rem;
+            border-radius: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -5px rgba(99, 102, 241, 0.6);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.25rem; }
+            .container { padding: 2rem 1rem; }
+            .card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-glow"></div>
+    
+    <div class="container">
+        <header>
+            <div class="logo">CodeCanvas 🏴󠁧󠁢🇼󠁬󠁳󠁿</div>
+            <h1>Digital Authority for <br><span class="highlight">Welsh Businesses</span></h1>
+            <p class="subtitle">5 Steps to Save 10+ Hours a Week & Double Your Online Leads</p>
+        </header>
+
+        <div class="card">
+            <ul class="checklist">
+                <li class="item">
+                    <div class="icon">📱</div>
+                    <div class="item-content">
+                        <h3>3-Second Trust Test</h3>
+                        <p>Is your site mobile-first and lightning fast? (Most local searches happen on smartphones).</p>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="icon">📍</div>
+                    <div class="item-content">
+                        <h3>Local SEO Mastery</h3>
+                        <p>Is your Google Business Profile optimized to beat your competitors in Cardiff & Swansea?</p>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="icon">⏳</div>
+                    <div class="item-content">
+                        <h3>Sleep-Easy Systems</h3>
+                        <p>Can clients book you at 11 PM without a phone call? Automated booking is the ultimate saver.</p>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="icon">🎨</div>
+                    <div class="item-content">
+                        <h3>High-End Branding</h3>
+                        <p>Does your visual identity reflect the premium quality of your services?</p>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="icon">🤖</div>
+                    <div class="item-content">
+                        <h3>AI Lead Capture</h3>
+                        <p>Never miss a lead again with smart chat widgets and automated follow-ups.</p>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="cta-box">
+                <h2 style="margin-bottom: 1.5rem;">Claim Your Free 15-Minute Audit</h2>
+                <p style="color: #94a3b8; margin-bottom: 2rem;">We will personally check your ranking against your 3 closest competitors and find one 'Quick Win' to save you 5 hours this week.</p>
+                <a href="mailto:codecanvaswales@gmail.com?subject=I%20want%20the%20Digital%20Audit" class="btn">Get Started Now</a>
+            </div>
+        </div>
+
+        <footer>
+            &copy; 2026 CodeCanvas Wales. Let's Build Your Digital Future. <br>
+            Phone: 0798433214 | Email: codecanvaswales@gmail.com
+        </footer>
+    </div>
+</body>
+</html>
