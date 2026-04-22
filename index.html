@@ -315,6 +315,27 @@
             font-weight: 600;
         }
 
+        /* Actions */
+        .btn-complete {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s;
+            padding: 8px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            outline: none;
+        }
+
+        .btn-complete:hover {
+            color: #4ade80;
+            background: rgba(74, 222, 128, 0.1);
+            transform: scale(1.1);
+        }
+
     </style>
 </head>
 <body>
@@ -408,6 +429,7 @@
                         <th>Material & Qty</th>
                         <th>Intended Use</th>
                         <th>Project Description</th>
+                        <th style="text-align: right;">Actions</th>
                     </tr>
                 </thead>
                 <tbody id="table-body">
@@ -513,7 +535,7 @@
             tableBody.innerHTML = '';
 
             if (filtered.length === 0) {
-                tableBody.innerHTML = '<tr><td colspan="6"><div class="empty-state"><span class="material-symbols-outlined">inbox</span><p>No quotes found.</p></div></td></tr>';
+                tableBody.innerHTML = '<tr><td colspan="7"><div class="empty-state"><span class="material-symbols-outlined">inbox</span><p>No quotes found.</p></div></td></tr>';
                 return;
             }
 
@@ -534,7 +556,12 @@
                         '<span style="font-size:0.8rem; color: var(--text-muted); margin-top:4px; display:inline-block;">Qty: ' + (q.quantity || 'N/A') + '</span>' +
                     '</td>' +
                     '<td>' + (q.use || 'N/A') + '</td>' +
-                    '<td class="td-desc">' + (q.description || 'N/A') + '</td>';
+                    '<td class="td-desc">' + (q.description || 'N/A') + '</td>' +
+                    '<td style="text-align: right;">' +
+                        '<button onclick="deleteQuote(\'' + q.id + '\')" class="btn-complete" title="Mark as Completed">' +
+                            '<span class="material-symbols-outlined">check_circle</span>' +
+                        '</button>' +
+                    '</td>';
                 tableBody.appendChild(tr);
             });
         }
@@ -550,6 +577,19 @@
         filterSearch.addEventListener('input', renderTable);
         filterMaterial.addEventListener('change', renderTable);
         filterUse.addEventListener('change', renderTable);
+
+        function deleteQuote(id) {
+            if (confirm('Are you sure you want to mark this quote as completed? This will remove it from the dashboard.')) {
+                rtdb.ref("quotes/" + id).remove()
+                    .then(function() {
+                        console.log("Quote " + id + " removed successfully");
+                    })
+                    .catch(function(error) {
+                        console.error("Error removing quote: ", error);
+                        alert("Error removing quote: " + error.message);
+                    });
+            }
+        }
 
     </script>
 </body>
